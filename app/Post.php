@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     public function comments(){
-        $this->hasMany(Comment::class);
+        return $this->hasMany(Comment::class);
     }
 
     public function user(){
-        $this->belongsTo(User::class);
+        return $this->belongsTo(User::class);
     }
 }
