@@ -6,6 +6,15 @@
             <div class="panel-body">
                 {{text}}
             </div>
+            <div v-if="editable" class="panel-heading">
+                <a :href="'/edit_post/' + id">
+                    <button class="btn">edit</button>
+                </a>
+                <a :href="'/delete_post/' + id">
+                    <button class="btn">delete</button>
+                </a>
+            </div>
+
             <div v-for="comment in comments">
                 <comment :text="comment.text" :authorID="comment.user_id"> </comment>
             </div>
@@ -19,7 +28,7 @@
 <script>
 
     export default {
-        props: ['id', 'title', 'text'],
+        props: ['id', 'title', 'text', 'editable'],
         data() {
             return {
                 comments:[],
@@ -41,7 +50,6 @@
                     for(let j=0; j<this.comments.length; j++){
                         console.log(this.comments[j]);
                     }
-//                    console.log("comments " + this.comments);
                 })
                 .catch(e => {
                     this.errors.push(e)

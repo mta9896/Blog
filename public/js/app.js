@@ -42998,20 +42998,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['posts'],
     data: function data() {
         return {
-            posts: [],
-            errors: []
+            //                posts:[],
+            //                errors: []
         };
     },
     created: function created() {
-        var _this = this;
-
-        __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('http://127.0.0.1:8000/postsAPI').then(function (response) {
-            _this.posts = response.data.posts;
-        }).catch(function (e) {
-            _this.errors.push(e);
-        });
+        //            axios.get('http://127.0.0.1:8000/postsAPI')
+        //                .then(response => {
+        //                    this.posts = response.data.posts;
+        //                    console.log("ppppppp");
+        //                })
+        //                .catch(e => {
+        //                    this.errors.push(e)
+        //                })
+        //            console.log("response " + this.posts.length);
     },
 
 
@@ -43133,10 +43136,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['id', 'title', 'text'],
+    props: ['id', 'title', 'text', 'editable'],
     data: function data() {
         return {
             comments: [],
@@ -43159,7 +43171,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             for (var j = 0; j < _this.comments.length; j++) {
                 console.log(_this.comments[j]);
             }
-            //                    console.log("comments " + this.comments);
         }).catch(function (e) {
             _this.errors.push(e);
         });
@@ -43189,6 +43200,18 @@ var render = function() {
         _c("div", { staticClass: "panel-body" }, [
           _vm._v("\n            " + _vm._s(_vm.text) + "\n        ")
         ]),
+        _vm._v(" "),
+        _vm.editable
+          ? _c("div", { staticClass: "panel-heading" }, [
+              _c("a", { attrs: { href: "/edit_post/" + _vm.id } }, [
+                _c("button", { staticClass: "btn" }, [_vm._v("edit")])
+              ]),
+              _vm._v(" "),
+              _c("a", { attrs: { href: "/delete_post/" + _vm.id } }, [
+                _c("button", { staticClass: "btn" }, [_vm._v("delete")])
+              ])
+            ])
+          : _vm._e(),
         _vm._v(" "),
         _vm._l(_vm.comments, function(comment) {
           return _c(

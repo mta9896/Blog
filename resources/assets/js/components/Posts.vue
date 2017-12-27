@@ -13,20 +13,23 @@
 <script>
     import axios from 'axios';
     export default {
+        props: ['posts'],
         data() {
             return {
-                posts:[],
-                errors: []
+//                posts:[],
+//                errors: []
             }
         },
         created() {
-            axios.get('http://127.0.0.1:8000/postsAPI')
-                .then(response => {
-                    this.posts = response.data.posts;
-                })
-                .catch(e => {
-                    this.errors.push(e)
-                })
+//            axios.get('http://127.0.0.1:8000/postsAPI')
+//                .then(response => {
+//                    this.posts = response.data.posts;
+//                    console.log("ppppppp");
+//                })
+//                .catch(e => {
+//                    this.errors.push(e)
+//                })
+//            console.log("response " + this.posts.length);
         },
 
         methods: {
